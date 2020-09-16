@@ -200,8 +200,13 @@ lazy val rootProject = (project in file("."))
 lazy val backend: Project = (project in file("backend"))
   .settings(
     libraryDependencies ++= dbDependencies ++ httpDependencies ++ jsonDependencies ++ apiDocsDependencies ++ monitoringDependencies ++ dbTestingStack ++ securityDependencies ++ emailDependencies,
-    mainClass in Compile := Some("com.softwaremill.bootzooka.Main")
+    mainClass in Compile := Some("com.softwaremill.bootzooka.Main"),
+    libraryDependencies ++= Seq(
+      "com.thesamet.scalapb.common-protos" %% "proto-google-common-protos-scalapb_0.10" % "1.17.0-0" % "protobuf",
+      "com.thesamet.scalapb.common-protos" %% "proto-google-common-protos-scalapb_0.10" % "1.17.0-0"
+    )
   )
+  .enablePlugins(Fs2Grpc)
   .enablePlugins(BuildInfoPlugin)
   .settings(commonSettings)
   .settings(Revolver.settings)

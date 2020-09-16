@@ -11,3 +11,5 @@ addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.5")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "1.0.0")
+
+addSbtPlugin("org.lyranthe.fs2-grpc" % "sbt-java-gen" % "0.7.3")
